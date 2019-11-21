@@ -5,11 +5,13 @@
   grid-template-rows: 80px 4fr;
   background-color: #282c34;
   color: white;
+  padding: 0px 15px;
 }
 
 .App-header {
   background-color: #282c34;
   font-size: calc(10px + 2vmin);
+  padding: 0px -15px;
   position: sticky;
   top: 0;
 }

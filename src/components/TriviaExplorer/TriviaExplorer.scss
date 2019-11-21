@@ -1,0 +1,13 @@
+.jan-TriviaExplorer {
+  display: grid;
+  grid-template-rows: 75px auto;
+}
+
+.jan-TriviaExplorer-PeopleListView {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 10px;
+  &-Item {
+    background-color: #525b6a;
+  }
+}
