@@ -1,10 +1,19 @@
 import React from "react";
-import { useQuery } from "@apollo/react-hooks";
 import { gql } from "apollo-boost";
 
 import PersonItem from "./PersonItem";
 
 type ApiUrl = string;
+
+export interface PeopleCollection {
+  people: Person[];
+  count: number;
+  next: ApiUrl;
+}
+
+export interface PeopleCollectionResponse {
+  peopleCollection: PeopleCollection;
+}
 
 export interface Person {
   birth_year: string;
@@ -35,15 +44,11 @@ const GET_PEOPLE = gql`
   }
 `;
 
-const PeopleListView = () => {
-  const { loading, error, data } = useQuery(GET_PEOPLE);
-  if (error) {
-    console.log({ error });
-    return <p>error</p>;
-  }
-  if (loading) return <p>Loading ...</p>;
-  const { people } = (data && data.peopleCollection) || {};
+interface PeopleListViewProps {
+  people: Person[];
+}
 
+const PeopleListView = ({ people }: PeopleListViewProps) => {
   return (
     <div className="jan-TriviaExplorer-PeopleListView">
       {people.map((person: Person, index: number) => (
@@ -52,5 +57,7 @@ const PeopleListView = () => {
     </div>
   );
 };
+
+export const PeopleListViewQuery = GET_PEOPLE;
 
 export default PeopleListView;

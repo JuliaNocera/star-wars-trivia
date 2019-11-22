@@ -1,6 +1,9 @@
 .jan-TriviaExplorer {
   display: grid;
   grid-template-rows: 75px auto;
+  &-body {
+    padding: 15px 15px 0 15px;
+  }
 }
 
 .jan-TriviaExplorer-PeopleListView {
@@ -8,6 +11,6 @@
   grid-template-columns: repeat(4, 1fr);
   grid-gap: 10px;
   &-Item {
-    background-color: #525b6a;
+    background-color: #212d40;
   }
 }

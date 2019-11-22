@@ -1,8 +1,11 @@
-import React, { Component } from "react";
-import { ApolloProvider } from "@apollo/react-hooks";
+import React from "react";
 
-import { client } from "../../lib/apollo-client";
-import PeopleListView from "./PeopleListView";
+import Query from "../Query";
+import PeopleListView, {
+  PeopleListViewQuery,
+  PeopleCollectionResponse
+} from "./PeopleListView";
+import Toolbar from "../../components/Toolbar";
 
 enum TriviaType {
   ALL = "ALL",
@@ -18,19 +21,33 @@ interface TriviaExplorerState {
   triviaType: TriviaType;
 }
 
-class TriviaExplorer extends Component {
+class TriviaExplorer extends React.Component {
   state: TriviaExplorerState = {
     triviaType: TriviaType.PEOPLE
   };
 
   render() {
     return (
-      <ApolloProvider client={client}>
-        <div className="jan-TriviaExplorer">
-          <div>TriviaExplorer</div>
-          <PeopleListView />
-        </div>
-      </ApolloProvider>
+      <div className="jan-TriviaExplorer">
+        <Toolbar>
+          <Toolbar.Title title="Trivia Explorer" />
+          <Toolbar.Button label="Load more" onClick={() => {}} />
+        </Toolbar>
+        <span className="jan-TriviaExplorer-body">
+          <Query query={PeopleListViewQuery}>
+            {({ data, loading, error }) => (
+              <PeopleListView
+                people={
+                  (data &&
+                    data.peopleCollection &&
+                    data.peopleCollection.people) ||
+                  []
+                }
+              />
+            )}
+          </Query>
+        </span>
+      </div>
     );
   }
 }

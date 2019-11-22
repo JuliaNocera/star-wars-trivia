@@ -2,16 +2,20 @@
   text-align: center;
   min-height: 100vh;
   display: grid;
-  grid-template-rows: 80px 4fr;
-  background-color: #282c34;
-  color: white;
-  padding: 0px 15px;
+  grid-template-columns: 275px 4fr;
+  background-color: #11151c;
+  color: #708d81;
 }
 
-.App-header {
-  background-color: #282c34;
+.App-nav {
+  background-color: #11151c;
+  color: #e4b363;
+  border-right: 2px solid #27292e;
+  box-shadow: 1px 1px #27292e;
   font-size: calc(10px + 2vmin);
-  padding: 0px -15px;
+  font-weight: bold;
+  letter-spacing: 4px;
+  padding-top: 1.2rem;
   position: sticky;
   top: 0;
 }

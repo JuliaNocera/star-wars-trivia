@@ -1,0 +1,37 @@
+.jan-Toolbar {
+  color: #e4b363;
+  width: 100%;
+  background-color: #10121a;
+  border-bottom: 1px solid #b08743;
+  box-shadow: 0px 1px #b08743;
+
+  display: flex;
+  align-items: center;
+}
+
+.jan-ToolbarActionButton {
+  margin-left: auto;
+  margin-right: 15px;
+  letter-spacing: 1px;
+  background-color: #4b6374;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  font-family: inherit;
+  color: inherit;
+  font-size: inherit;
+  &:hover,
+  &:visited {
+    background-color: #293640;
+    border: none;
+    outline: none;
+  }
+}
+
+.jan-ToolbarTitle {
+  margin-left: 15px;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
